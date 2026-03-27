@@ -1,0 +1,368 @@
+/* ============================================================
+   style.css — Estilos específicos da página Linktree
+   Importar APÓS o style-global.css:
+   <link rel="stylesheet" href="../style-global.css" />
+   <link rel="stylesheet" href="./style.css" />
+   ============================================================ */
+
+/* =====================================================
+   LAYOUT
+===================================================== */
+body {
+    font-family: var(--font-corpo);
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(236, 136, 192, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(52, 152, 219, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(195, 171, 242, 0.12) 0%, transparent 60%),
+        var(--cor-fundo-rosa);
+    background-attachment: fixed;
+    color: var(--cor-texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 48px 20px 64px;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* =====================================================
+   AVATAR
+===================================================== */
+.avatar-wrapper {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin-bottom: 28px;
+    z-index: 10;
+}
+
+/* Borda grossa e branca como solicitado no modelo */
+.avatar-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--cor-branco);
+    border: 5px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.avatar-badge {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 32px;
+    height: 32px;
+    background: #ec88c0;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(236, 136, 192, 0.4);
+}
+
+.avatar-badge svg {
+    width: 18px;
+    height: 18px;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 15%;
+    /* Desce um pouco para não cortar a testa */
+    display: block;
+}
+
+/* =====================================================
+   NOME E TAGLINE
+===================================================== */
+.profile-name {
+    font-family: var(--font-titulo);
+    font-size: clamp(2.4rem, 8vw, 2.8rem);
+    font-weight: 700;
+    color: #1a5a8e;
+    /* Azul do design Stitch */
+    text-align: center;
+    line-height: 1.1;
+    margin: 0 0 12px;
+    animation: fade-up 0.5s ease both;
+}
+
+.profile-tagline {
+    font-family: var(--font-corpo);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1a5a8e;
+    opacity: 0.8;
+    text-align: center;
+    margin: 0 0 16px;
+    animation: fade-up 0.5s 0.1s ease both;
+}
+
+.profile-bio {
+    font-family: var(--font-corpo);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #1a5a8e;
+    text-align: center;
+    max-width: 280px;
+    margin: 0 0 40px;
+    line-height: 1.4;
+    animation: fade-up 0.5s 0.2s ease both;
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+.links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.btn-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px 22px;
+    border-radius: 20px;
+    /* Mais arredondado como no modelo */
+    text-decoration: none;
+    font-family: var(--font-corpo);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: #ec88c0;
+    /* Rosa padrão */
+    border: none;
+    box-shadow: 0 4px 15px rgba(236, 136, 192, 0.2);
+    position: relative;
+    transition: background 0.28s ease, transform 0.22s ease, box-shadow 0.28s ease;
+    opacity: 0;
+    animation: pop-up 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    cursor: pointer;
+}
+
+/* Hover states */
+.btn-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-link:nth-child(1):hover {
+    background: #2980b9;
+}
+
+.btn-link:nth-child(2):hover {
+    background: #2471a3;
+}
+
+.btn-link:nth-child(3):hover {
+    background: #e576b3;
+    box-shadow: 0 6px 20px rgba(236, 136, 192, 0.35);
+}
+
+@keyframes pop-up {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Efeito sweep no hover */
+.btn-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+    pointer-events: none;
+}
+
+.btn-link:hover::before {
+    transform: translateX(0);
+}
+
+/* Staggered delays */
+.btn-link:nth-child(1) {
+    animation-delay: 0.1s;
+    background: #3498db;
+    /* Azul para WhatsApp/Contato */
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+}
+
+.btn-link:nth-child(2) {
+    animation-delay: 0.2s;
+    background: #2980b9;
+    /* Azul levemente diferente para o curso secundário */
+    box-shadow: 0 4px 15px rgba(41, 128, 185, 0.2);
+}
+
+/* O botão da Comunidade (compra principal) permanece rosa */
+.btn-link:nth-child(3) {
+    animation-delay: 0.3s;
+    background: #ec88c0;
+}
+
+/* Icon container */
+.btn-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    transition: var(--transicao-bounce);
+    background: #ffffff;
+    /* Branco sólido como no modelo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Ícone rotaciona levemente no hover */
+.btn-link:hover .btn-icon {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.btn-text {
+    flex: 1;
+    line-height: 1.2;
+    font-size: 1.15rem;
+}
+
+.btn-arrow {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    transition: transform 0.2s ease;
+}
+
+.btn-link:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.btn-arrow svg {
+    width: 18px;
+    height: 18px;
+    stroke: #ffffff;
+}
+
+/* Badge "MAIS ACESSADO" - Agora Azul como no modelo */
+.btn-badge {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background: #1a5a8e;
+    /* Azul solicitado no modelo */
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(26, 90, 142, 0.2);
+}
+
+/* =====================================================
+   WHATSAPP PULSE
+===================================================== */
+.btn-link:nth-child(1) {
+    animation-name: pop-up, pulse-whatsapp;
+    animation-duration: 0.5s, 2.4s;
+    animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1), ease-in-out;
+    animation-iteration-count: 1, infinite;
+    animation-fill-mode: forwards, none;
+    animation-delay: 0.1s, 1.2s;
+}
+
+@keyframes pulse-whatsapp {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(52, 152, 219, 0.15), 0 4px 15px rgba(52, 152, 219, 0.2);
+    }
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+    margin-top: 48px;
+    font-size: 0.78rem;
+    color: var(--cor-texto-sec);
+    opacity: 0.7;
+    text-align: center;
+    animation: fade-up 0.5s 0.8s ease both;
+}
+
+/* Bolinhas decorativas acima do footer */
+footer::before {
+    content: '• • •';
+    display: block;
+    color: var(--cor-secundario);
+    opacity: 0.5;
+    font-size: 1.1rem;
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (min-width: 600px) {
+    .btn-link {
+        padding: 18px 26px;
+    }
+}

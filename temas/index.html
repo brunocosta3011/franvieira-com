@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore nossos temas de apliques e escolha o seu favorito!" />
+  <title>Temas · Fran Vieira</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Brand tokens -->
+  <link rel="stylesheet" href="../style-global.css" />
+  <!-- Page styles -->
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+</head>
+
+<body>
+
+  <header class="page-header sticky-header">
+    <div class="container header-grid">
+      <div class="header-branding">
+        <a href="../index.html" class="back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+        </a>
+        <div class="logo-wrapper">
+          <img src="../fran-avatar.jpg" alt="Fran Vieira" class="mini-avatar" />
+          <h1 class="header-title">Temas</h1>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="search-box-compact">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="theme-search" placeholder="Buscar tema..." />
+        </div>
+      </div>
+    </div>
+    <div id="search-suggestion" class="suggestion-text-compact"></div>
+  </header>
+
+  <main class="container">
+    <div class="empty-padding"></div>
+    <!-- Gallery Section -->
+    <section class="gallery-container">
+
+      <div id="themes-grid" class="themes-grid">
+        <!-- Will be populated by JS -->
+        <div class="loading-state">Carregando temas...</div>
+      </div>
+    </section>
+
+    <!-- Empty State -->
+    <div id="empty-state" class="empty-state hidden">
+      <div class="empty-icon">✨</div>
+      <h3>Tema não encontrado?</h3>
+      <p>A Fran adora criar projetos novos! Clique no botão abaixo para pedir um tema exclusivo.</p>
+      <a href="https://wa.me/553498077504?text=Oi%20Fran!%20N%C3%A3o%20encontrei%20o%20tema%20que%20eu%20queria%20no%20site%2C%20pode%20me%20ajudar%3F" id="custom-theme-btn" class="btn-cta">
+        QUERO UM TEMA PERSONALIZADO
+      </a>
+    </div>
+  </main>
+
+  <!-- Help Footer Button - Simple/Clean -->
+  <div class="help-footer-fixed">
+      <a href="https://wa.me/553498077504?text=Oi%20Fran!%20Acesse%20o%20cat%C3%A1logo%20mas%20n%C3%A3o%20encontrei%20o%20que%20eu%20queria." target="_blank" class="btn-wa-footer-simple">
+          <span>Ir para WhatsApp</span>
+          <svg viewBox="0 0 24 24" fill="currentColor">
+               <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.038 3.284l-.569 2.1c-.149.546.129 1.129.623 1.341l.156.05c.193.061.396.068.591.021l2.05-.487c1.115.65 2.103 1.042 3.42 1.043 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.766-5.766zm3.435 8.169c-.114.167-.324.239-.522.181-1.023-.299-2.29-.981-3.125-1.815-.834-.834-1.516-2.102-1.815-3.125-.058-.198.014-.408.181-.522l.509-.341c.174-.117.227-.348.118-.528l-.736-1.217c-.112-.184-.363-.233-.535-.104l-.513.385c-.328.246-.505.659-.444 1.065.201 1.336.852 2.92 1.879 3.946s2.61 1.678 3.946 1.879c.406.061.819-.116 1.065-.444l.385-.513c.129-.172.08-.423-.104-.535l-1.217-.736c-.18-.109-.411-.056-.528.118l-.342.509z"/>
+          </svg>
+      </a>
+  </div>
+
+  <!-- Gallery Modal - Leroy Merlin Style -->
+  <div id="gallery-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-container-luxury">
+      <button class="luxury-close" id="close-gallery">&times;</button>
+      
+      <div class="luxury-header">
+        <h2 id="modal-title">Nome do Tema</h2>
+        <span class="luxury-tag">Ateliê Fran Vieira · Coleção Exclusiva</span>
+      </div>
+
+      <div class="luxury-content">
+        <!-- Vertical Thumbnails Sidebar -->
+        <div id="modal-thumbnails" class="luxury-thumbnails">
+          <!-- Thumbnails injected here -->
+        </div>
+
+        <!-- Main Media Stage -->
+        <div class="luxury-stage">
+          <button class="luxury-nav prev-btn" id="prev-media">
+            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          
+          <div id="carousel-media-container" class="luxury-media-wrapper">
+              <!-- Main image/video -->
+          </div>
+          
+          <button class="luxury-nav next-btn" id="next-media">
+            <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="luxury-footer">
+        <div class="luxury-actions">
+            <button class="btn-luxury-cta" id="btn-confirm-modal">
+                <span>✨</span> Quero este tema
+            </button>
+            <button class="btn-luxury-outline" id="btn-custom-modal">
+                <span>🎨</span> Quero este personalizado
+            </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+  <script src="./script.js" defer></script>
+  <script src="../global.js" defer></script>
+</body>
+
+</html>

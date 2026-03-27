@@ -1,0 +1,778 @@
+/* ============================================================
+   temas/style.css
+   Design Premium & Meigo para Galeria de Temas
+   ============================================================ */
+
+body {
+    background: linear-gradient(135deg, #fff5f9 0%, #ffffff 50%, #f0f7ff 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding-bottom: 120px;
+    font-family: var(--fonte-modern);
+}
+
+/* ──────────────── Background Aurora ───────────────── */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, rgba(236,136,192,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(100,180,255,0.05) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+:root {
+    --cor-primario: #ec88c0;
+    --cor-primario-escuro: #d84a8a;
+    --cor-texto-pri: #324d67; /* Navy Blue for Brand Premium */
+    --cor-texto-sec: #64748b;
+    --cor-texto: #334155;
+    --gradiente-primario: linear-gradient(135deg, #ec88c0 0%, #d84a8a 100%);
+    --fonte-serif: 'Playfair Display', serif;
+    --fonte-modern: 'Outfit', sans-serif;
+}
+
+.mini-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    border: 2px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-texto-sec);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--cor-primario);
+    transform: translateX(-4px);
+}
+
+.back-link svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.5;
+}
+
+/* ──────────────── Sticky Header Luxury ───────────────── */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(236, 136, 192, 0.1);
+    padding: 8px 0; /* Reduzido de 10px */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.header-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.header-branding {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-title {
+    font-family: var(--fonte-serif);
+    font-size: 1.4rem; /* Reduzido de 1.6rem */
+    color: var(--cor-texto-pri);
+    font-weight: 800;
+    margin: 0;
+}
+
+.header-controls {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    max-width: 400px;
+}
+
+/* Novo Estilo de 'Botão' para a Busca */
+.search-box-compact {
+    background: #fff;
+    border: 1.5px solid var(--cor-primario);
+    border-radius: 100px;
+    padding: 7px 16px; /* Reduzido de 10px 20px */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    box-shadow: 0 3px 10px rgba(236, 136, 192, 0.08);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.search-box-compact:focus-within {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(236, 136, 192, 0.15);
+}
+
+.search-box-compact input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.9rem; /* Reduzido de 1rem */
+    width: 100%;
+    font-family: var(--fonte-modern);
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--cor-primario);
+}
+
+.suggestion-text-compact {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--cor-primario);
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+.empty-padding {
+    height: 10px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .header-title { display: none; }
+    .header-grid { gap: 8px; }
+    .header-controls { max-width: none; }
+    .mini-avatar { width: 36px; height: 36px; }
+}
+
+/* ──────────────── Theme Grid ───────────────── */
+.themes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* ──────────────── Theme Card Luxury ───────────────── */
+.theme-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    padding: 12px;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.theme-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    background: #fff;
+    box-shadow: 0 30px 60px rgba(236,136,192,0.15);
+    border-color: var(--cor-primario);
+}
+
+.card-img-wrapper {
+    aspect-ratio: 1 / 1;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background: #fdfdfd;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff5f9;
+    color: var(--cor-primario-escuro);
+    font-family: var(--fonte-serif);
+    font-size: 1.4rem;
+    padding: 24px;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.selection-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--cor-primario);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    z-index: 10;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease;
+}
+
+.theme-card.selected .selection-badge {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-content h3 {
+    font-family: var(--fonte-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 10px 0;
+    color: var(--cor-texto-pri); /* Navy Blue instead of Black */
+}
+
+.card-tag {
+    font-family: var(--fonte-modern);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: var(--cor-primario);
+    background: #fff0f6;
+}
+
+/* ──────────────── Help Footer Fixed ───────────────── */
+.help-footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 6px 20px; /* Reduzido de 10px */
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+    z-index: 1100;
+    border-top: 1px solid rgba(236, 136, 192, 0.1);
+    display: flex;
+    justify-content: center;
+}
+
+.btn-wa-footer-simple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 25px; /* Reduzido de 10px 30px */
+    border-radius: 100px;
+    font-family: var(--fonte-modern);
+    font-size: 0.9rem; /* Reduzido de 0.95rem */
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2);
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 200px;
+}
+
+.btn-wa-footer-simple:active {
+    transform: scale(0.96);
+}
+
+.btn-wa-footer-simple svg {
+    width: 20px; /* Reduzido de 22px */
+    height: 20px;
+}
+
+@media (max-width: 600px) {
+    .help-footer-fixed {
+        padding-bottom: 20px; /* Ajuste para mobile */
+    }
+}
+
+/* Padding for main scroll */
+body {
+    padding-bottom: 90px; /* Reduzido de 120px já que o footer está menor */
+}
+
+.btn-action {
+    border-radius: 100px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-action.primary {
+    background: var(--gradiente-primario);
+    color: white;
+    box-shadow: 0 10px 25px rgba(236,136,192,0.4);
+}
+
+.btn-action.secondary {
+    background: rgba(236, 136, 192, 0.1);
+    border: 1px solid var(--cor-primario);
+    color: var(--cor-primario-escuro);
+    backdrop-filter: blur(10px);
+}
+
+.btn-action:hover {
+    transform: scale(1.03);
+}
+
+.btn-action:active {
+    transform: scale(0.97);
+}
+
+/* ──────────────── Empty State ───────────────── */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-state.hidden {
+    display: none;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    font-family: var(--font-titulo);
+    font-size: 1.8rem;
+    color: var(--cor-texto);
+    margin-bottom: 12px;
+}
+
+.empty-state p {
+    color: var(--cor-texto-sec);
+    margin-bottom: 30px;
+}
+
+/* ──────────────── Loading State ───────────────── */
+.loading-state, .error-msg {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--cor-texto-sec);
+    background: var(--cor-branco);
+    border-radius: var(--radius-card);
+    box-shadow: var(--sombra-card);
+}
+
+.error-msg p {
+    font-weight: 600;
+    color: #e74c3c;
+    margin-bottom: 8px;
+}
+
+/* ──────────────── Luxury Glassmorphism Modal ───────────────── */
+:root {
+    --luxury-glass: rgba(255, 255, 255, 0.7);
+    --luxury-border: rgba(255, 255, 255, 0.4);
+    --luxury-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
+    --fonte-serif: 'Playfair Display', serif;
+    --fonte-modern: 'Outfit', sans-serif;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.modal.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,240,246,0.8) 0%, rgba(255,255,255,0.8) 100%);
+    backdrop-filter: blur(15px);
+    z-index: 2000;
+}
+
+.modal-container-luxury {
+    position: relative;
+    width: 95%;
+    max-width: 1200px;
+    height: 90vh;
+    background: var(--luxury-glass);
+    border: 1px solid var(--luxury-border);
+    backdrop-filter: blur(25px) saturate(180%);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: var(--luxury-shadow);
+    z-index: 2001;
+    animation: luxuryEntry 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.luxury-header {
+    padding: 35px 50px 20px;
+    background: transparent;
+    text-align: left;
+}
+
+.luxury-header h2 {
+    font-size: 2.8rem;
+    font-family: var(--fonte-serif);
+    color: var(--cor-texto-pri);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+.luxury-tag {
+    font-family: var(--fonte-modern);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--cor-primario);
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.luxury-content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    padding: 0 40px 20px;
+}
+
+/* Sidebar Miniaturas Luxury */
+.luxury-thumbnails {
+    width: 120px;
+    padding: 10px 15px 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.thumb-item {
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    filter: grayscale(0.5);
+    opacity: 0.6;
+}
+
+.thumb-item:hover, .thumb-item.active {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.05) translateX(5px);
+    box-shadow: 0 10px 20px rgba(236, 136, 192, 0.2);
+    border-color: var(--cor-primario);
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-thumb-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fdfdfd;
+    color: var(--cor-primario);
+}
+
+.video-thumb-icon svg {
+    width: 30px;
+}
+
+/* Luxury Main Stage */
+.luxury-stage {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.3);
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.02);
+}
+
+.luxury-media-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    perspective: 1000px;
+}
+
+/* Marca d'água Luxury */
+.luxury-media-wrapper::before {
+    content: "Fran Vieira — Ateliê Criativo";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-20deg);
+    font-family: var(--fonte-modern);
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.02);
+    pointer-events: none;
+    z-index: 5;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+.luxury-media-wrapper img,
+.luxury-media-wrapper video {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+    animation: floatMedia 6s ease-in-out infinite;
+}
+
+/* Navegação Estilizada */
+.luxury-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 50;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.luxury-nav svg { width: 30px; fill: #333; transition: 0.3s; }
+
+.luxury-nav:hover {
+    background: var(--cor-primario);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.luxury-nav:hover svg { fill: white; }
+
+.prev-btn { left: 30px; }
+.next-btn { right: 30px; }
+
+/* Luxury Footer */
+.luxury-footer {
+    padding: 30px 50px 50px;
+    background: transparent;
+}
+
+.luxury-actions {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.btn-luxury-cta {
+    background: var(--gradiente-primario);
+    padding: 18px 50px;
+    border-radius: 100px;
+    border: none;
+    color: white;
+    font-family: var(--fonte-modern);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 15px 35px rgba(236,136,192,0.4);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-luxury-cta:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 45px rgba(236,136,192,0.6);
+}
+
+.btn-luxury-outline {
+    background: rgba(236, 136, 192, 0.1);
+    padding: 18px 50px;
+    border-radius: 100px;
+    border: 1px solid var(--cor-primario);
+    color: var(--cor-primario-escuro);
+    font-family: var(--fonte-modern);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s;
+    backdrop-filter: blur(5px);
+}
+
+.btn-luxury-outline:hover {
+    background: var(--cor-primario);
+    color: white;
+}
+
+.luxury-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 35px;
+    color: #333;
+    background: rgba(0,0,0,0.05);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    transition: 0.3s;
+}
+
+.luxury-close:hover { background: #ff4d4d; color: white; transform: rotate(90deg); }
+
+/* Animações */
+@keyframes luxuryEntry {
+    0% { opacity: 0; transform: scale(0.9) translateY(40px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes floatMedia {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* Mobile Ajustes Luxury */
+@media (max-width: 768px) {
+    .modal-container-luxury {
+        width: 100%;
+        height: 100dvh;
+        border-radius: 0;
+    }
+    .luxury-header { padding: 25px 30px 10px; }
+    .luxury-header h2 { font-size: 1.8rem; }
+    .luxury-content { 
+        flex-direction: column; 
+        padding: 0 15px;
+        gap: 10px;
+    }
+    .luxury-stage {
+        order: -1; /* Imagem principal primeiro no mobile */
+        flex: 1;
+        min-height: 250px;
+        margin: 5px 0;
+        background: transparent;
+        box-shadow: none;
+    }
+    .luxury-thumbnails {
+        order: 10; /* Miniaturas por último (na base) */
+        width: 100%;
+        height: 90px;
+        min-height: 90px;
+        flex-direction: row;
+        padding: 5px 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+    }
+    .thumb-item { 
+        width: 75px; 
+        height: 75px; 
+        flex-shrink: 0;
+    }
+    .luxury-media-wrapper img,
+    .luxury-media-wrapper video {
+        max-width: 95%;
+        max-height: 95%;
+        animation: none; /* Remove flutuação no mobile para evitar saltos visuais */
+    }
+    .luxury-media-wrapper::before {
+        font-size: 1.5rem;
+        letter-spacing: 5px;
+        opacity: 0.05;
+    }
+    .luxury-actions { flex-direction: column; gap: 12px; width: 100%; }
+    .btn-luxury-cta, .btn-luxury-outline { 
+        width: 100%;
+        padding: 14px 30px; 
+        font-size: 1rem;
+        justify-content: center;
+    }
+    .luxury-nav { width: 45px; height: 45px; }
+    .luxury-footer { padding: 15px 30px 30px; }
+    .luxury-close { top: 15px; right: 20px; width: 45px; height: 45px; font-size: 30px; }
+}
+@media (max-width: 600px) {
+    .page-header { padding: 25px 0 10px; }
+    .page-header h1 { font-size: 2.2rem; }
+    .themes-grid { grid-template-columns: 1fr; gap: 20px; }
+    .floating-actions { 
+        bottom: 12px; 
+        width: calc(100% - 30px);
+        left: 15px;
+        transform: none;
+    }
+}

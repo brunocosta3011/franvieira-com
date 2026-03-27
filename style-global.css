@@ -1,0 +1,290 @@
+/* ============================================================
+   style-global.css
+   Variáveis globais da marca Fran Vieira
+   Importado em todas as páginas do site.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Importação de Fontes (Google Fonts)
+   ------------------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ------------------------------------------------------------
+   Tokens de Design — :root
+   ------------------------------------------------------------ */
+:root {
+
+   /* ----------------------------------------------------------
+     System Colors — Paleta principal da marca
+     ---------------------------------------------------------- */
+   --cor-primario: #ec88c0;
+   /* Rosa principal (design Stitch) */
+   --cor-secundario: #1a5a8e;
+   /* Azul profundo secundário */
+   --cor-texto: #1a5a8e;
+   /* Texto azul profundo */
+   --cor-realce: #C3ABF2;
+   /* Roxo de destaque */
+
+   /* ----------------------------------------------------------
+     Custom Colors — Cores de suporte e interface
+     ---------------------------------------------------------- */
+   --cor-texto-sec: #4a7099;
+   /* Texto secundário / legendas */
+   --cor-fundo-claro: #f8f5ff;
+   /* Fundo lilás suave — para evitar o branco "vazio" */
+   --cor-fundo-rosa: #fff5f8;
+   /* Fundo rosado suave (design Stitch) */
+   --cor-rodape: #1a5a8e;
+   /* Fundo do rodapé — azul profundo */
+   --cor-branco: #FFFFFF;
+   /* Branco puro (mantido para cards e elementos de alto contraste) */
+
+   /* ----------------------------------------------------------
+     Derivadas úteis — Calculadas a partir das cores principais
+     ---------------------------------------------------------- */
+   --cor-primario-hover: #d4669e;
+   /* Rosa escurecido para estados hover */
+   --cor-primario-light: rgba(236, 136, 192, 0.12);
+   /* Fundo suave rosa (cards, badges) */
+   --cor-secundario-light: rgba(26, 90, 142, 0.10);
+   /* Fundo suave azul */
+   --cor-realce-light: rgba(195, 171, 242, 0.12);
+   /* Fundo suave roxo */
+
+   /* ----------------------------------------------------------
+     Tipografia — Famílias de fontes
+     ---------------------------------------------------------- */
+   --font-titulo: 'Playfair Display', serif;
+   /* Títulos e headings */
+   --font-corpo: 'Poppins', sans-serif;
+   /* Corpo de texto e UI */
+
+   /* ----------------------------------------------------------
+     Espaçamentos e Bordas — Padrões de arredondamento e sombra
+     ---------------------------------------------------------- */
+   --radius-btn: 50px;
+   /* Border-radius de botões (pill) */
+   --radius-card: 16px;
+   /* Border-radius de cards */
+   --sombra-card: 0 4px 24px rgba(236, 136, 192, 0.12);
+   /* Sombra padrão de cards */
+
+   /* ----------------------------------------------------------
+     Sombras Elevadas — Para estados de hover e destaque
+     ---------------------------------------------------------- */
+   --sombra-elevada: 0 20px 60px rgba(236, 136, 192, 0.18), 0 4px 16px rgba(0, 0, 0, 0.06);
+   --sombra-hover: 0 28px 72px rgba(236, 136, 192, 0.28);
+
+   /* ----------------------------------------------------------
+     Gradientes — Para fundos e textos de destaque
+     ---------------------------------------------------------- */
+   --gradient-hero: linear-gradient(135deg, #fff5f8 0%, #f8f5ff 50%, rgba(236, 136, 192, 0.08) 100%);
+   --gradient-primario: linear-gradient(135deg, #ec88c0, #d4669e);
+
+   /* Gradientes de Transição (Substitutos para Ondas) */
+   --trans-rosa-claro: linear-gradient(to bottom, var(--cor-fundo-rosa), var(--cor-fundo-claro));
+   --trans-claro-rosa: linear-gradient(to bottom, var(--cor-fundo-claro), var(--cor-fundo-rosa));
+   --trans-primario-claro: linear-gradient(to bottom, var(--cor-primario), var(--cor-fundo-claro));
+   --trans-claro-primario: linear-gradient(to bottom, var(--cor-fundo-claro), var(--cor-primario));
+
+   /* ----------------------------------------------------------
+     Transições — Curvas de animação reutilizáveis
+     ---------------------------------------------------------- */
+   --transicao-suave: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+   --transicao-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+}
+
+/* ------------------------------------------------------------
+   Reset CSS Básico
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+
+/* ============================================================
+   Utilitários Globais — Adicionados na modernização
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Scroll Reveal — Substitui AOS em elementos importantes
+   Adicione .reveal ou .reveal-left ao elemento HTML.
+   O script global (script.js) detecta a interseção e adiciona
+   .visible automaticamente.
+   ------------------------------------------------------------ */
+.reveal {
+   opacity: 0;
+   transform: translateY(32px);
+   transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+   opacity: 1;
+   transform: translateY(0);
+}
+
+.reveal-left {
+   opacity: 0;
+   transform: translateX(-40px);
+   transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-left.visible {
+   opacity: 1;
+   transform: translateX(0);
+}
+
+/* ------------------------------------------------------------
+   Linha Decorativa de Seção
+   Uso: <span class="section-line"></span> abaixo do título
+   ------------------------------------------------------------ */
+.section-line {
+   display: block;
+   width: 48px;
+   height: 3px;
+   background: var(--gradient-primario);
+   border-radius: 2px;
+   margin: 12px auto 0;
+}
+
+/* ------------------------------------------------------------
+   Glassmorphism Card — Para cards sobre fundos coloridos
+   Combine com .card ou qualquer container
+   ------------------------------------------------------------ */
+.card-glass {
+   background: rgba(255, 255, 255, 0.82);
+   backdrop-filter: blur(12px);
+   -webkit-backdrop-filter: blur(12px);
+   border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* ------------------------------------------------------------
+   Texto Gradient — Para palavras de destaque em títulos
+   Uso: <span class="text-gradient">palavra</span>
+   ------------------------------------------------------------ */
+.text-gradient {
+   background: var(--gradient-primario);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+}
+
+/* ------------------------------------------------------------
+   Botão CTA — Estado ativo (feedback tátil de clique)
+   ------------------------------------------------------------ */
+.btn-cta:active {
+   transform: translateY(0) scale(0.98);
+   transition: transform 0.1s ease;
+}
+
+/* ============================================================
+   Polimento Global — Acessibilidade, Performance, Mobile
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Scroll suave e offset de seção
+   ------------------------------------------------------------ */
+html {
+   scroll-behavior: smooth;
+}
+
+section {
+   scroll-margin-top: 20px;
+}
+
+/* ------------------------------------------------------------
+   Tipografia Refinada
+   ------------------------------------------------------------ */
+h1,
+h2,
+h3,
+h4 {
+   text-rendering: optimizeLegibility;
+}
+
+/* Letter-spacing negativo em títulos grandes */
+h1 {
+   letter-spacing: -0.02em;
+}
+
+/* Line-height padronizado nos parágrafos */
+p {
+   line-height: 1.7;
+}
+
+/* ------------------------------------------------------------
+   Mobile Polish
+   ------------------------------------------------------------ */
+.btn-cta {
+   min-height: 52px;
+   -webkit-tap-highlight-color: transparent;
+}
+
+.btn-link {
+   -webkit-tap-highlight-color: transparent;
+}
+
+/* ------------------------------------------------------------
+   Performance — will-change nos elementos animados principais
+   ------------------------------------------------------------ */
+.reveal,
+.reveal-left {
+   will-change: transform;
+}
+
+.btn-cta,
+.btn-link,
+.feature-card,
+.depo-card,
+.fase-card,
+.problem-card {
+   will-change: transform;
+}
+
+/* ------------------------------------------------------------
+   Cursor Personalizado — desktop/hover apenas
+   ------------------------------------------------------------ */
+@media (hover: hover) and (min-width: 768px) {
+   .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ec88c0;
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: 99999;
+      transform: translate(-50%, -50%);
+   }
+}
+
+/* ------------------------------------------------------------
+   Acessibilidade — Redução de Movimento
+   Desativa todas as animações para usuários que preferem.
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+
+   *,
+   *::before,
+   *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+   }
+
+   /* Garantir que reveal elements fiquem visíveis */
+   .reveal,
+   .reveal-left {
+      opacity: 1;
+      transform: none;
+   }
+}
