@@ -59,6 +59,8 @@ a { color: inherit; text-decoration: none; }
 .c-comunidade .etiqueta { background: var(--ice-400); color: var(--navy-700); }
 .c-curso { background: linear-gradient(135deg, var(--surface), var(--gold-100)); }
 .c-curso .etiqueta { background: var(--gold-100); color: var(--gold-fg); }
+.c-mentoria { background: linear-gradient(135deg, var(--surface), var(--ice-200)); }
+.c-mentoria .etiqueta { background: var(--ice-400); color: var(--navy-700); }
 .c-temas { background: linear-gradient(135deg, var(--surface), #efe9fb); }
 .c-temas .etiqueta { background: #e3d9f7; color: #5b4a8a; }
 .c-loja { background: linear-gradient(135deg, var(--surface), var(--sakura-100)); }
