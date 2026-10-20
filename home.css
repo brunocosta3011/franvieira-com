@@ -1,0 +1,81 @@
+/* home.css — só a home (index.html). Visual do cortadores.franvieira.com; não afeta as outras páginas. */
+
+:root {
+  --navy-900: #171c3a; --navy-700: #22305b;
+  --ice-100: #f3fafc; --ice-200: #e5f6fa; --ice-400: #b4e3f0; --ice-900: #52707c;
+  --sakura-700: #a75b79; --sakura-500: #d98aaa; --sakura-300: #f2c7d7; --sakura-100: #fbeff4;
+  --mint-700: #4f786a; --mint-300: #cbe5da; --mint-100: #edf7f2;
+  --gold-100: #f1e4ce; --gold-fg: #7a5a20;
+  --pink-500: #e84e8c;
+  --surface: #fff; --border: #dbe3ee; --muted: #5b6b82;
+  --shadow-1: 0 1px 2px rgba(23,28,58,.06), 0 2px 8px rgba(23,28,58,.06);
+  --shadow-3: 0 8px 20px rgba(23,28,58,.14), 0 24px 48px rgba(23,28,58,.12);
+  --brand: "Playfair Display", Georgia, serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100dvh; color: var(--navy-900);
+  font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ice-400) 40%, var(--surface)) 0%, var(--ice-200) 45%, var(--ice-100) 100%) fixed;
+}
+a { color: inherit; text-decoration: none; }
+.tela { display: flex; flex-direction: column; gap: 12px; max-width: 28rem; margin: 0 auto; padding: 16px 16px 32px; }
+.marca { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.foto {
+  width: 5.75rem; height: 5.75rem; margin-bottom: 8px; border: 4px solid var(--surface); border-radius: 50%;
+  object-fit: cover; object-position: 50% 18%; background: var(--surface);
+  box-shadow: var(--shadow-3), 0 0 0 2px var(--sakura-500);
+}
+.nome { margin: 0; font: italic 600 1.625rem/1.1 var(--brand); color: var(--navy-700); }
+.selo { margin: 2px 0 0; font-size: 11px; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--sakura-700); }
+.etiqueta { padding: 3px 12px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.preco { color: var(--navy-700); }
+.preco s { color: var(--muted); }
+.preco b { font-size: 1rem; color: var(--pink-500); }
+.assinatura { margin: 8px 0 0; text-align: center; font-size: .875rem; color: var(--muted); }
+
+/* Instagram */
+.instagram {
+  display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 8px 12px;
+  border: 1px solid var(--border); border-radius: 18px; background: var(--surface); box-shadow: var(--shadow-1);
+}
+.instagram img { flex: none; width: 2.4rem; height: 2.4rem; object-fit: contain; }
+.instagram span { display: flex; flex-direction: column; min-width: 0; }
+.instagram strong { font-size: 1rem; color: var(--pink-500); }
+.instagram small { font-size: .875rem; color: var(--muted); }
+
+/* Cartão base (A e B) */
+.cartoes { display: flex; flex-direction: column; gap: 12px; }
+.cartao {
+  display: flex; align-items: center; gap: 12px; min-height: 5.5rem; padding: 12px 16px;
+  border: 1px solid var(--border); border-radius: 22px; background: var(--surface); box-shadow: var(--shadow-1);
+}
+.cartao img { flex: none; width: 5.25rem; height: auto; max-height: 5rem; object-fit: contain; }
+.cartao--inv { flex-direction: row-reverse; }
+.cartao .txt { display: flex; flex: 1; flex-direction: column; align-items: flex-start; gap: 2px; min-width: 0; }
+.cartao strong { font-size: 1.03rem; line-height: 1.2; color: var(--navy-700); }
+.cartao small { font-size: .875rem; line-height: 1.35; color: var(--muted); }
+.c-comunidade { background: linear-gradient(135deg, var(--surface), var(--ice-200)); }
+.c-comunidade .etiqueta { background: var(--ice-400); color: var(--navy-700); }
+.c-curso { background: linear-gradient(135deg, var(--surface), var(--gold-100)); }
+.c-curso .etiqueta { background: var(--gold-100); color: var(--gold-fg); }
+.c-temas { background: linear-gradient(135deg, var(--surface), #efe9fb); }
+.c-temas .etiqueta { background: #e3d9f7; color: #5b4a8a; }
+.c-loja { background: linear-gradient(135deg, var(--surface), var(--sakura-100)); }
+.c-loja .etiqueta { background: var(--sakura-300); color: var(--sakura-700); }
+.c-zap { background: linear-gradient(135deg, var(--surface), var(--mint-100)); }
+.c-zap .etiqueta { background: var(--mint-300); color: var(--mint-700); }
+
+
+.estrela{position:relative;display:flex;align-items:center;gap:8px;padding:18px 16px 16px;border-radius:26px;border:2px solid transparent;
+ background:linear-gradient(135deg,#fff,var(--ice-200)) padding-box,linear-gradient(135deg,var(--sakura-500),#e2b869,var(--ice-900)) border-box;
+ box-shadow:0 10px 28px rgba(217,138,170,.35),0 0 0 6px rgba(255,255,255,.55);margin-top:10px}
+.estrela img{flex:none;width:7rem;height:auto}
+.estrela .txt{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0}
+.estrela strong{font:italic 700 1.4rem/1.1 var(--brand);color:var(--navy-700)}
+.estrela small{font-size:.875rem;line-height:1.4;color:var(--muted)}
+.estrela .cta{margin-top:6px;padding:8px 16px;border-radius:999px;background:var(--pink-500);color:#fff;font-size:.875rem;font-weight:700;box-shadow:0 4px 12px rgba(232,78,140,.4)}
+.selo-estrela{position:absolute;top:-14px;left:16px;display:flex;align-items:center;gap:6px;padding:5px 14px 5px 8px;border-radius:999px;
+ background:linear-gradient(135deg,#f3d48a,#d9a441);color:#5a3d0a;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 4px 12px rgba(180,133,63,.45)}
+.selo-estrela svg{width:18px;height:18px;fill:#fff;stroke:#b4853f;stroke-width:1.2}
+
