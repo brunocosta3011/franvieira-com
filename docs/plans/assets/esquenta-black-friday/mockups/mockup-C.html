@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mockup C · Esquenta Black Friday</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../../../home.css" />
+  <link rel="stylesheet" href="./mock.css" />
+  <style>
+    /* PROPOSTA — Mockup C: cartão "Black" escuro (navy + ouro), mesmo tamanho dos demais, sem selo de Destaque */
+    .c-esquenta-c {
+      position: relative; overflow: hidden; border-color: #3a4a7e; color: #fff;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(243, 212, 138, .28) 0, transparent 38%),
+        radial-gradient(circle at 12% 110%, rgba(232, 78, 140, .22) 0, transparent 45%),
+        linear-gradient(135deg, var(--navy-900), var(--navy-700));
+      box-shadow: 0 10px 24px rgba(23, 28, 58, .35);
+    }
+    .c-esquenta-c .etiqueta { background: linear-gradient(135deg, #f3d48a, #d9a441); color: #3b2706; }
+    .c-esquenta-c strong { color: #fff; font: italic 700 1.25rem/1.15 var(--brand); }
+    .c-esquenta-c small { color: #d6def2; }
+    .c-esquenta-c .entrar { margin-top: 6px; padding: 6px 14px; border-radius: 999px; background: var(--pink-500); color: #fff; font-size: .8125rem; font-weight: 700; }
+    .c-esquenta-c img { background: rgba(255, 255, 255, .92); border-radius: 50%; padding: 6px; }
+  </style>
+</head>
+<body>
+  <main class="tela">
+    <div class="mock-aviso"><b>MOCKUP C</b> · Cartão escuro “Black” · campanha ativa até 23/11</div>
+
+    <header class="marca">
+      <img class="foto" src="../../../../../assets/home/fran.webp" alt="Fran Vieira" width="92" height="92" />
+      <h1 class="nome">Fran Vieira</h1>
+      <p class="selo">Especialista em Apliques Comestíveis</p>
+    </header>
+
+    <a class="instagram" href="#">
+      <img src="../../../../../assets/home/instagram.webp" alt="" width="38" height="38" />
+      <span><strong>@franvieiraatelie</strong><small>Novidades, bastidores e inspirações.</small></span>
+    </a>
+
+    <nav class="cartoes" aria-label="Links principais">
+      <!-- NOVO (proposta): substitui Destaque + Curso + Mentoria -->
+      <a class="cartao c-esquenta-c" href="#">
+        <span class="txt">
+          <span class="etiqueta">Black Friday</span>
+          <strong>Esquenta Black Friday 23/11</strong>
+          <small>Grupo no WhatsApp com as ofertas em primeira mão.</small>
+          <span class="entrar">Entrar no grupo</span>
+        </span>
+        <img src="../../../../../assets/home/comunidade.webp" alt="" width="84" height="82" />
+      </a>
+
+      <a class="cartao c-loja" href="#">
+        <span class="txt">
+          <span class="etiqueta">Novo</span>
+          <strong>Loja de Cortadores</strong>
+          <small>Cortadores personalizados com Efeito 3D. Peça pelo WhatsApp.</small>
+        </span>
+        <img src="../../../../../assets/home/catalogo.webp" alt="" width="84" height="63" />
+      </a>
+
+      <a class="cartao cartao--inv c-temas" href="#">
+        <span class="txt">
+          <span class="etiqueta">Catálogo</span>
+          <strong>Catálogo de Temas de Apliques</strong>
+          <small>Veja todos os temas de apliques disponíveis.</small>
+        </span>
+        <img src="../../../../../assets/home/temas.webp" alt="" width="84" height="78" />
+      </a>
+
+      <a class="cartao c-zap" href="#">
+        <span class="txt">
+          <span class="etiqueta">WhatsApp</span>
+          <strong>Encomendas de Apliques</strong>
+          <small>Atendimento pelo WhatsApp para encomendas de apliques.</small>
+        </span>
+        <img src="../../../../../assets/home/whatsapp.webp" alt="" width="84" height="66" />
+      </a>
+    </nav>
+
+    <p class="assinatura">© 2026 Fran Vieira · Todos os direitos reservados</p>
+  </main>
+</body>
+</html>
