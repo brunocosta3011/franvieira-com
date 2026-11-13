@@ -206,7 +206,8 @@ T-01 → T-02 → T-03 → T-04 (depende do mockup) → T-05 → T-06 → T-07 (
 ## Impacto colateral
 - **R1.** Relógio do aparelho errado → modo errado (aceito; o grupo continua funcionando).
 - **R2.** Bots e previews de link (WhatsApp, Instagram) não executam JS: veem a home normal. Por isso o cartão novo fica escondido por padrão e a página sem JS cai no modo normal.
-- **R3.** Cache do `index.html` e de `home.css`: o visitante pode ver CSS antigo logo após o deploy. Se acontecer, o cartão novo não aparece (fica escondido), nunca aparece quebrado.
+- **R3.** Cache do `home.css`: a Hostinger serve com `Cache-Control: max-age=604800` (7 dias). Aconteceu de verdade em 12/11: o celular carregou o `index.html` novo com o `home.css` antigo e o cartão apareceu sem estilo, com Destaque e Curso visíveis. Correção: versionar na URL (`home.css?v=20261113`, `home-campanha.js?v=20261113`). **Sempre que mudar esses arquivos, trocar o `?v=` no `index.html`.** (Também vale na T-07: ao remover a campanha, trocar o `?v=`.)
+  - *Correção ao plano original:* a premissa "se o CSS estiver desatualizado o cartão fica escondido" estava errada, porque o cartão só fica escondido com o CSS novo.
 - **R4.** O Curso (com preço promocional) e a Mentoria ficam fora do ar durante a campanha: confirmar que é intencional (P1).
 
 ## Teste de aceitação (do ponto de vista de quem pediu)
