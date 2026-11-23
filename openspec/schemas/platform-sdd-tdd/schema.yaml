@@ -1,0 +1,43 @@
+name: platform-sdd-tdd
+version: "2.3"
+description: "Schema canônico de governança SDD/TDD do ecossistema Fran Vieira"
+required_artifacts:
+  - path: "proposal.md"
+    type: "markdown"
+    description: "Proposta de mudança com escopo e critérios de aceite"
+    required_sections:
+      - "Contexto"
+      - "Problema"
+      - "Escopo"
+      - "Fora de Escopo"
+      - "Riscos"
+      - "Critérios de Aceite"
+  - path: "specs"
+    type: "directory"
+    description: "Diretório de especificações BDD com cenários Given/When/Then"
+    min_files: 1
+    file_extensions:
+      - ".md"
+      - ".feature"
+    content_patterns:
+      - "(Given|Dado)"
+      - "(When|Quando)"
+      - "(Then|Então)"
+  - path: "test-plan.md"
+    type: "markdown"
+    description: "Plano de testes com rastreabilidade de requisitos e evidência de teste RED"
+    required_sections:
+      - "Mapeamento Requisito -> Teste"
+      - "Evidência de Teste RED"
+  - path: "tasks.md"
+    type: "markdown"
+    description: "Lista de tarefas atômicas sequenciais com estimativa <= 2h"
+    required_sections:
+      - "Tarefas"
+    task_pattern: '\[[ xX]\]\s*(T-\d+|Task\s*\d+|[\d.]+)'
+    max_duration_hours: 2
+conditional_artifacts:
+  - path: "design.md"
+    type: "markdown"
+    description: "Documento de arquitetura, contratos e decisões técnicas"
+    required_when: "architecture_change_or_contract"

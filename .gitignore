@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Harness Local State
+.harness/state/
+.harness/events/
+.harness/leases/
+.harness/handoffs/
+.harness/bundles/
+.harness/packs/
+.harness/instructions/
+.harness/workspaces/
+*.lock
+
+# Environment & Credentials
+.env*
+*.env
+*.pem
+*.key

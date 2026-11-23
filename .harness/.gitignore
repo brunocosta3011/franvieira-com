@@ -1,0 +1,10 @@
+# Ignora estados voláteis de execução local do Harness
+events/
+state/
+leases/
+handoffs/
+bundles/
+packs/
+instructions/
+workspaces/
+*.lock

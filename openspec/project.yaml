@@ -1,0 +1,11 @@
+name: franvieira-com
+schema: platform-sdd-tdd
+version: 2.3.0
+description: "Plataforma web franvieira.com com governança estrita OpenSpec SDD/TDD Harness v2.3"
+openspec_version: "2.3"
+settings:
+  enforce_red_test: true
+  enforce_specs_bdd: true
+  max_task_duration_hours: 2
+  archive_directory: "openspec/archive"
+  changes_directory: "openspec/changes"
